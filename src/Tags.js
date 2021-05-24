@@ -18,7 +18,7 @@ const Tags = (props) => {
   const classes = useStyles()
 
   const handleTagsChange = (value) => {
-    onChange({ id, "tag": value })
+    onChange({ id, "tags": value })
   }
 
   return (

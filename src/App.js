@@ -60,8 +60,8 @@ const App = () => {
                         <div> {item.body} </div>
                       </ResultList.Description>
                       <Country id={item._id} options={country} defaultValue={item.country ?? '未登録'} onChange={updateCountry} />
-                      <Tags id={item._id} options={item.tag} onChange={updateTags} />
-                      
+                      <Tags id={item._id} options={item.tags} onChange={updateTags} />
+
                     </ResultList.Content>
                   </ResultList>
                 ))
@@ -90,9 +90,9 @@ const fetchCountry = async () => {
 
 const updateTags = (value) => {
   axios
-    .post(ES_URL + '/' + ES_APP + '/_update/' + value.id, { "doc": { "tag": value.tag } })
+    .post(ES_URL + '/' + ES_APP + '/_update/' + value.id, { "doc": { "tags": value.tags } })
     .then(res => {
-      console.log(value.id + " のTag更新: " + value.tag)
+      console.log(value.id + " のTag更新: " + value.tags)
     })
     .catch(error => {
       console.log(error, value.id)
